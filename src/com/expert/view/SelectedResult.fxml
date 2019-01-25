@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="302.0" prefWidth="582.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.expert.view.SelectedResultController">
+   <children>
+      <TableView fx:id="expertTable" focusTraversable="false" layoutX="9.0" layoutY="45.0" prefHeight="170.0" prefWidth="566.0">
+        <columns>
+          <TableColumn fx:id="thIdColumn" prefWidth="75.0" text="编号" />
+          <TableColumn fx:id="thNameColumn" prefWidth="75.0" text="姓名" />
+            <TableColumn fx:id="thSexColumn" prefWidth="75.0" text="性别" />
+            <TableColumn fx:id="thAgeColumn" prefWidth="75.0" text="年龄" />
+            <TableColumn fx:id="thProfessionalTitleColumn" prefWidth="75.0" text="职称" />
+            <TableColumn fx:id="thFieldColumn" prefWidth="188.0" text="专业" />
+        </columns>
+      </TableView>
+      <HBox layoutX="390.0" layoutY="258.0" spacing="20.0">
+         <children>
+            <Button layoutX="341.0" layoutY="192.0" mnemonicParsing="false" onAction="#handleOk" prefHeight="30.0" prefWidth="80.0" text="保存记录" />
+            <Button layoutX="437.0" layoutY="192.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="30.0" prefWidth="80.0" text="取消" />
+         </children>
+      </HBox>
+      <Label layoutX="14.0" layoutY="14.0" text="抽取结果">
+         <font>
+            <Font name="Arial Black" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

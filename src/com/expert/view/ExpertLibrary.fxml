@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.expert.view.ExpertLibraryController">
+   <children>
+      <TableView fx:id="expertTable" layoutX="15.0" layoutY="30.0" prefHeight="500.0" prefWidth="758.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="40.0">
+         <columns>
+            <TableColumn fx:id="thIdColumn" prefWidth="123.0" text="编号" />
+            <TableColumn fx:id="thNameColumn" prefWidth="85.0" resizable="false" text="姓名" />
+            <TableColumn fx:id="thSexColumn" prefWidth="75.0" resizable="false" text="性别" />
+            <TableColumn fx:id="thAgeColumn" prefWidth="75.0" resizable="false" text="年龄" />
+            <TableColumn fx:id="thProfessionalTitleColumn" prefWidth="109.0" resizable="false" text="职称" />
+            <TableColumn fx:id="thFieldColumn" prefWidth="285.0" resizable="false" text="专业" />
+         </columns>
+      </TableView>
+      <HBox layoutX="415.0" layoutY="556.0" spacing="15.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#importxls" prefWidth="75.0" text="导入" />
+            <Button layoutX="428.0" layoutY="597.0" mnemonicParsing="false" onAction="#handleNewExpert" prefHeight="30.0" prefWidth="75.0" text="添加" />
+            <Button layoutX="525.0" layoutY="597.0" mnemonicParsing="false" onAction="#handleEditExpert" prefHeight="30.0" prefWidth="75.0" text="修改" />
+            <Button layoutX="624.0" layoutY="597.0" mnemonicParsing="false" onAction="#handleDeletePerson" prefHeight="30.0" prefWidth="75.0" text="删除" />
+         </children>
+      </HBox>
+      <Label layoutX="15.0" layoutY="2.0" text="专家信息库" textFill="#1664a6">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

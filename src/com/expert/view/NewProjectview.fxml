@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.expert.view.NewProjectController">
+   <children>
+      <Pane prefHeight="600.0" prefWidth="800.0">
+         <children>
+            <VBox alignment="TOP_RIGHT" layoutX="69.0" layoutY="39.0" spacing="22.0">
+               <children>
+                  <Label layoutX="61.0" layoutY="44.0" prefHeight="30.0" prefWidth="90.0" text="项目名称：" textFill="#1664a6">
+                     <font>
+                        <Font name="Microsoft JhengHei UI Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="97.0" layoutY="86.0" prefHeight="30.0" text="时间：" textFill="#1664a6">
+                     <font>
+                        <Font name="Microsoft JhengHei UI Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="61.0" layoutY="128.0" prefHeight="30.0" prefWidth="90.0" text="抽取人数：" textFill="#1664a6">
+                     <font>
+                        <Font name="Microsoft JhengHei UI Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="97.0" layoutY="171.0" prefHeight="30.0" text="地点：" textFill="#1766a6">
+                     <font>
+                        <Font name="Microsoft JhengHei UI Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="61.0" layoutY="225.0" prefHeight="30.0" prefWidth="90.0" text="抽取范围：" textFill="#1664a6">
+                     <font>
+                        <Font name="Microsoft JhengHei UI Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox layoutX="184.0" layoutY="42.0" nodeOrientation="LEFT_TO_RIGHT" spacing="22.0">
+               <children>
+                  <TextField fx:id="projectName" layoutX="184.0" layoutY="42.0" prefHeight="30.0" prefWidth="318.0" />
+                  <DatePicker fx:id="projectTime" layoutX="184.0" layoutY="83.0" />
+                  <HBox layoutX="184.0" layoutY="126.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" prefWidth="391.0" spacing="40.0">
+                     <children>
+                        <RadioButton fx:id="projectThreePerson" mnemonicParsing="false" prefHeight="30.0" text="3人">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="numberforchose" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="projectFivePerson" mnemonicParsing="false" prefHeight="30.0" prefWidth="51.0" text="5人" toggleGroup="$numberforchose" />
+                     </children>
+                  </HBox>
+                  <TextField fx:id="projectLocation" layoutX="184.0" layoutY="171.0" prefHeight="30.0" prefWidth="318.0" />
+                  <ScrollPane fx:id="scrollPane" layoutX="184.0" layoutY="232.0" prefHeight="287.0" prefWidth="495.0" />
+               </children>
+            </VBox>
+            <Group layoutX="510.0" layoutY="110.0" />
+            <Button layoutX="363.0" layoutY="547.0" mnemonicParsing="false" onAction="#choosePerson" prefHeight="30.0" prefWidth="75.0" text="抽取" />
+         </children></Pane>
+   </children>
+</AnchorPane>

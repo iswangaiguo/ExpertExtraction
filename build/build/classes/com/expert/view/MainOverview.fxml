@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.expert.view.MainLayoutController">
+   <children>
+      <AnchorPane prefHeight="600.0" prefWidth="200.0" style="-fx-background-color: #1d2026;">
+         <children>
+            <Pane prefHeight="81.0" prefWidth="237.0" style="-fx-background-color: #1d2026;">
+               <children>
+                  <Label layoutX="42.0" layoutY="27.0" text="Expoert App" textFill="WHITE">
+                     <font>
+                        <Font name="Showcard Gothic" size="23.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <VBox layoutX="5.0" layoutY="152.0" spacing="10.0">
+               <children>
+                  <JFXButton layoutX="5.0" layoutY="152.0" onAction="#creaeteNewProject" prefHeight="44.0" prefWidth="230.0" ripplerFill="#f8f5f5" text="新建项目" textFill="#e8e6e6" />
+                  <JFXButton layoutX="5.0" layoutY="217.0" onAction="#showExpertLibrary" prefHeight="44.0" prefWidth="230.0" ripplerFill="#f8f5f5" text="专家库" textFill="#e8e6e6" />
+                  <JFXButton layoutX="5.0" layoutY="278.0" onAction="#showHistory" prefHeight="44.0" prefWidth="230.0" ripplerFill="#f8f5f5" text="历史记录" textFill="#e8e6e6" />
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <BorderPane fx:id="borderPane" layoutX="237.0" prefHeight="600.0" prefWidth="800.0" />
+   </children>
+</AnchorPane>

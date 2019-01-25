@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="334.0" prefWidth="419.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.expert.view.ExpertEditDialogController">
+   <children>
+      <HBox layoutX="32.0" layoutY="14.0">
+         <children>
+            <GridPane layoutX="32.0" layoutY="14.0" prefHeight="237.0" prefWidth="355.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="216.0" minWidth="10.0" prefWidth="68.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="287.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label prefHeight="45.0" prefWidth="262.0" text="编号">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="45.0" prefWidth="262.0" text="年龄" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="45.0" prefWidth="262.0" text="性别" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="45.0" prefWidth="262.0" text="姓名" textAlignment="RIGHT" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="45.0" prefWidth="262.0" text="职称" GridPane.rowIndex="4">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="45.0" prefWidth="262.0" text="专业" GridPane.rowIndex="5">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="thIdField" GridPane.columnIndex="1" />
+                  <TextField fx:id="thNameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="thAgeField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField fx:id="thProfessionalTitleField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <TextField fx:id="thFieldField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <children>
+                        <RadioButton fx:id="thMale" mnemonicParsing="false" text="男">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="sex" />
+                           </toggleGroup></RadioButton>
+                        <RadioButton fx:id="thFemale" mnemonicParsing="false" text="女" toggleGroup="$sex" />
+                     </children>
+                  </HBox>
+               </children>
+            </GridPane>
+         </children>
+      </HBox>
+      <HBox layoutX="222.0" layoutY="280.0" spacing="15.0">
+         <children>
+            <Button layoutX="236.0" layoutY="281.0" mnemonicParsing="false" onAction="#handleOk" prefHeight="30.0" prefWidth="75.0" text="确定" />
+            <Button layoutX="318.0" layoutY="281.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="30.0" prefWidth="75.0" text="取消" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
