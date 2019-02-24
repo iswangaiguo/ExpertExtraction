@@ -26,7 +26,7 @@ public class SelectedResultController {
 	private TableView<Expert> expertTable;
 
 	@FXML
-	private TableColumn<Expert, Number> thIdColumn;
+	private TableColumn<Expert, String> thIdColumn;
 
 	@FXML
 	private TableColumn<Expert, String> thNameColumn;
@@ -83,7 +83,7 @@ public class SelectedResultController {
 		String sql = "insert into projects (project_id, project_name, project_time, project_num,"
 				+ "project_location,Project_fields, Project_expertsId) values (?, ?, ?, ?, ?, ?, ?)";
 		Object params[] = {projectDetailsCopy.getProject_id(), projectDetailsCopy.getProject_name(), projectDetailsCopy.getProject_time(),
-					projectDetailsCopy.getProject_num(), projectDetailsCopy.getProject_location(),projectDetailsCopy.getProject_fields(),
+					projectDetailsCopy.getProject_num( ), projectDetailsCopy.getProject_location(),projectDetailsCopy.getProject_fields(),
 					 projectDetailsCopy.getProject_expertsId()};
 		projectDetailsList.add(new ProjectDetails(projectDetailsCopy));
 		try {
@@ -99,7 +99,7 @@ public class SelectedResultController {
 	}
 
 	@FXML
-	private void handleCancel() {
+	private void handleCancel() { 
 		stage.close();
 	}
 	

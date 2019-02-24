@@ -5,7 +5,6 @@
 			<filelist>
 				<file name="${java.home}\..\lib\ant-javafx.jar"/>
 				<file name="${java.home}\lib\jfxrt.jar"/>
-				<file name="${basedir}"/>
 			</filelist>
 		</path>
 	
@@ -23,6 +22,11 @@
 		<copy todir="externalLibs">
 			<fileset dir="D:\eclipse-workspace\ExpertExtraction\lib">
 				<filename name="commons-dbutils-1.6.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="D:\eclipse-workspace\ExpertExtraction\lib">
+				<filename name="poi-3.17.jar"/>
 			</fileset>
 		</copy>
 		<copy todir="externalLibs">
@@ -81,6 +85,7 @@
 				<include name="commons-pool2-2.4.2.jar"/>
 				<include name="commons-dbcp2-2.1.1.jar"/>
 				<include name="jfoenix-8.0.8.jar"/>
+				<include name="poi-3.17.jar"/>
 			</fileset>
 		</copy>
 	
@@ -127,7 +132,6 @@
 		<fx:resources id="appRes">
 			<fx:fileset dir="dist" includes="ExpertExtraction.jar"/>
 			<fx:fileset dir="dist" includes="libs/*"/>
-			<fx:fileset dir="dist" includes="resources/**"/>
 		</fx:resources>
 	
 		<fx:application id="fxApplication"

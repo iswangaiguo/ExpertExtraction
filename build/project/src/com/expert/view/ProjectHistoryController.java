@@ -45,7 +45,7 @@ public class ProjectHistoryController {
 	private TableView<Expert> expertTable;
 
 	@FXML
-	private TableColumn<Expert, Number> thIdColumn;
+	private TableColumn<Expert, String> thIdColumn;
 
 	@FXML
 	private TableColumn<Expert, String> thNameColumn;
@@ -76,6 +76,7 @@ public class ProjectHistoryController {
 		try {
 			String sql = "select * from projects";
 			projectDetailsList = controller.getProjectDetailsList();
+			projectDetailsList.clear();
 			List<ProjectDetailsCopy> list = queryRunner.query(sql, new BeanListHandler<ProjectDetailsCopy>(ProjectDetailsCopy.class));
 			for (ProjectDetailsCopy projectDetailsCopy : list) {
 				projectDetailsList.add(new ProjectDetails(projectDetailsCopy));

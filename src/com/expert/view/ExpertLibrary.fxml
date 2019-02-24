@@ -16,8 +16,11 @@
             <TableColumn fx:id="thSexColumn" prefWidth="75.0" resizable="false" text="性别" />
             <TableColumn fx:id="thAgeColumn" prefWidth="75.0" resizable="false" text="年龄" />
             <TableColumn fx:id="thProfessionalTitleColumn" prefWidth="109.0" resizable="false" text="职称" />
-            <TableColumn fx:id="thFieldColumn" prefWidth="285.0" resizable="false" text="专业" />
+            <TableColumn fx:id="thFieldColumn" prefWidth="286.0" resizable="false" text="专业" />
          </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
       </TableView>
       <HBox layoutX="415.0" layoutY="556.0" spacing="15.0">
          <children>

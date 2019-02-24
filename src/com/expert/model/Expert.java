@@ -7,22 +7,20 @@ import javafx.beans.property.StringProperty;
 
 public class Expert {
 
-	private final IntegerProperty thId;
+	private final StringProperty thId;
 	private final StringProperty thName;
 	private final StringProperty thSex;
 	private final IntegerProperty thAge;
 	private final StringProperty thField;
 	private final StringProperty thProfessionalTitle;
 	
-	
-	
 	public Expert() {
-		this(0, "", "", 0, "", "");
+		this("", "", "", 0, "", "");
 	}
 
-	public Expert(Integer id, String name, String sex, Integer age,
+	public Expert(String id, String name, String sex, Integer age,
 			String field,String professionalTitle) {
-		this.thId = new SimpleIntegerProperty(id);
+		this.thId = new SimpleStringProperty(id);
 		this.thName = new SimpleStringProperty(name);
 		this.thSex = new SimpleStringProperty(sex);
 		this.thAge = new SimpleIntegerProperty(age);
@@ -35,14 +33,14 @@ public class Expert {
 	}
 	
 
-	public Integer getThId() {
+	public String getThId() {
 		return thId.get();
 	}
-	public void setThId(Integer id) {
+	public void setThId(String id) {
 		this.thId.set(id);
 	}
 	
-	public IntegerProperty thIdProperty() {
+	public StringProperty thIdProperty() {
 		return thId;
 	}
 	
@@ -101,6 +99,5 @@ public class Expert {
 		return "Expert [thId=" + thId + ", thName=" + thName + ", thSex=" + thSex + ", thAge=" + thAge + ", thField="
 				+ thField + ", thProfessionalTitle=" + thProfessionalTitle + "]";
 	}
-
 	
 }

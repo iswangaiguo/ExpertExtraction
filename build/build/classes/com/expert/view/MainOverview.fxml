@@ -11,13 +11,13 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.expert.view.MainLayoutController">
    <children>
-      <AnchorPane prefHeight="600.0" prefWidth="200.0" style="-fx-background-color: #1d2026;">
+      <AnchorPane prefHeight="620.0" prefWidth="237.0" style="-fx-background-color: #1d2026;">
          <children>
             <Pane prefHeight="81.0" prefWidth="237.0" style="-fx-background-color: #1d2026;">
                <children>
-                  <Label layoutX="42.0" layoutY="27.0" text="Expoert App" textFill="WHITE">
+                  <Label layoutX="42.0" layoutY="27.0" text="专家抽取软件" textFill="WHITE">
                      <font>
-                        <Font name="Showcard Gothic" size="23.0" />
+                        <Font name="Book Antiqua Bold" size="23.0" />
                      </font>
                   </Label>
                </children>

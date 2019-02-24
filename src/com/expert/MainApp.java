@@ -31,22 +31,21 @@ public class MainApp extends Application{
 	@Override
 	public void start(Stage stage) throws Exception {
 		this.primaryStage = stage;
-		this.primaryStage.setTitle("Expert");
-		initDaSqliteData();
+		this.primaryStage.setTitle("Expert"); 
+		initSqliteData();
 		initRootLayout();
 		showMainLayout();
 	}
 
-	private void initDaSqliteData() {
+	private void initSqliteData() {
 		try {
 			QueryRunner runner = new QueryRunner(DBSource.getDatasource());
 			runner.update(TableString.CREATE_EXPERT_TABLE);
 			runner.update(TableString.CREATE_PROJECTS_TABLE);
-			runner.update(TableString.CREATE_COLLOGE_CATEGORY_TABLE);
 			runner.update(TableString.CREATE_COLLOGE_MAJOR_NAME_TABLE);
 			Integer num = runner.query("select count(*) from colloge_major_name", new ScalarHandler<Integer>());
 			if (num == 0) {
-				runner.update(TableString.INSERT_CMNAME);	
+				runner.update(TableString.INSERT_CMNAME);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -55,6 +54,7 @@ public class MainApp extends Application{
 
 	private void initRootLayout() {
 		try {
+			primaryStage.setResizable(false);
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(MainApp.class.getResource("view/RootLayout.fxml"));
 			rootLayout = (BorderPane)loader.load();

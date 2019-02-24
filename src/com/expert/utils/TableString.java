@@ -3,14 +3,14 @@ package com.expert.utils;
 public class TableString {
 
 	public static String CREATE_EXPERT_TABLE = "CREATE TABLE IF NOT EXISTS 'expert' ("
-			+ "'th_id' INT NOT NULL PRIMARY KEY,"
+			+ "'th_id' CHAR(30) NOT NULL PRIMARY KEY,"
 			+ "'th_name' CHAR(10) NOT NULL,"
 			+ "'th_sex' CHAR(1) NOT NULL,"
 			+ "'th_age' INT NOT NULL,"
 			+ "'th_field' CHAR(30) NOT NULL,"
 			+ "'th_professional_title' CHAR(10) NOT NULL)";
 	
-	public static String CREATE_PROJECTS_TABLE = "CREATE TABLE IF NOT EXISTS 'projects'("
+	public static String CREATE_PROJECTS_TABLE = "CREATE TABLE IF NOT EXISTS 'projects'(" 
 			+ "'project_id' INT NOT NULL PRIMARY KEY,"
 			+ "'project_name' CHAR(50) NOT NULL,"
 			+ "'project_time' CHAR(15) NOT NULL,"
@@ -18,16 +18,12 @@ public class TableString {
 			+ "'project_location' CHAR(50) NOT NULL,"
 			+ "'Project_fields' CHAR(50) NOT NULL," 
 			+ "'Project_expertsId' CHAR(10) NOT NULL)";
-	public static String CREATE_COLLOGE_CATEGORY_TABLE = "CREATE TABLE IF NOT EXISTS 'colloge_category' ("
-			+ "college_id INT NOT NULL PRIMARY KEY,"
-			+ "major_id INT NOT NULL,"
-			+ "parent_id INT NOT NULL)";
 	
 	public static String CREATE_COLLOGE_MAJOR_NAME_TABLE = "CREATE TABLE IF NOT EXISTS 'colloge_major_name'("
 			+ "'cm_id' CHAR(10) NOT NULL PRIMARY KEY,"
 			+ "'cm_name' CHAR(50) NOT NULL)";
 	
-	public static String INSERT_CMNAME = "INSERT INTO colloge_major_name (cm_id, cm_name) values"
+	public static String INSERT_CMNAME = "INSERT INTO colloge_major_name (cm_id, cm_name) values "
 			+ "('01', '冶金工程学院'),('02', '材料科学与工程学院'), ('03', '化学与化工学院'),"
 			+ "('04', '建筑工程学院'),('05', '机械工程学院'),('06', '电气与信息工程学院'),"
 			+ "('07', '计算机科学与技术学院'),('08', '数理科学与工程学院'),('09', '管理科学与工程学院'),"
@@ -35,14 +31,22 @@ public class TableString {
 			+ "('13', '能源与环境学院'),('14', '艺术与设计学院'), ('15', '马克思主义学院'),"
 			+ "('16', '体育部'),('17', '创新教育学院'),"
 			+ "('010', '冶金工程'),('011', '资源循环科学与工程'),('012', '矿物加工工程'), ('013', '材料成型及控制工程'),"
-			+ "('020', '金属材料工程'), ('021', '无机非金属材料工程'),('022', '材料物理'), ('023', '材料科学与工程'),('024', '焊接技术与工程', '025', '材料化学'),"
+			+ "('020', '金属材料工程'), ('021', '无机非金属材料工程'),('022', '材料物理'), ('023', '材料科学与工程'),('024', '焊接技术与工程'),('025', '材料化学'),"
 			+ "('030', '化学工程与工艺'), ('031', '应用化学'), ('032', '高分子材料与工程'), ('033', '制药工程'),('034','化学生物学'), ('035', '能源化学工程'),"
 			+ "('040', '建筑环境与能源应用工程'),('041', '给排水科学与工程'), ('042', '土木工程'), ('043', '安全工程'),('044', '工程管理'), ('045', '建筑学'),('046', '城乡规划'),('047', '道路桥梁与渡河工程'),"
 			+ "('050', '机械设计制造及其自动化'),('051', '过程装备与控制工程'),('052','车辆工程'),('053','机械工程'),"
 			+ "('060', '自动化'),('061', '测控技术与仪器'), ('062', '通信工程'),('063', '电子信息工程'),('064', '电气工程及其自动化'),('065', '电气工程与智能控制'),"
-			+ "('070', '计算机科学与技术'),('071', '软件工程'),('072', '网络工程'),('073', '物联网工程'),";
-	
-	
+			+ "('070', '计算机科学与技术'),('071', '软件工程'),('072', '网络工程'),('073', '物联网工程'),"
+			+ "('080', '信息与计算科学'), ('081', '数学与应用数学'),('082', '光电信息科学与工程'), ('083', '光源与照明'),"
+			+ "('090', '工业工程'), ('091', '信息管理与信息系统'), ('092', '物流工程'), ('093', '工程造价'),"
+			+ "('100', '会计学'), ('101', '财务管理'),('102', '工商管理'),('103', '市场营销'),('104', '会计学'),('105', '人力资源管理'),('106', '旅游管理'),('107', '审计学'),('108', '国际经济与贸易'),('109', '经济统计学'),('1010', '金融学'),('1012', '经济学'),('1013', '经济与金融'),('1014', '国际商务'),('1015', '国际经济与贸易（中外合作办学）'),('1016', '会计学（中外合作办学）'),('1017', '互联网金融'),"
+			+ "('110', '法学'), ('111', '行政管理'), ('112', '公共事业管理'), ('113', '劳动与社会保障'),"
+			+ "('120', '英语'), ('121', '秘书学'), ('122', '翻译'),"
+			+ "('130', '能源与动力工程'), ('131', '环境工程'), ('132', '环保设备工程'), ('133', '新能源科学与工程'),"
+			+ "('140', '工业设计'), ('141', '产品设计'), ('142', '环境设计'), ('143', '视觉传达设计'), ('144', '数字媒体艺术'), ('145', '公共艺术'),"
+			+ "('150', '体育经济与管理'),"
+			+ "('160', '马克思主义学院'),"
+			+ "('170', '创新教育学院')";
 	
 	
 	public static String[] FIELD= {

@@ -8,29 +8,29 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="780.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.expert.view.ProjectHistoryController">
    <children>
-      <TableView fx:id="projectTable" layoutY="36.0" prefHeight="384.0" prefWidth="770.0">
+      <TableView fx:id="projectTable" layoutY="36.0" prefHeight="360.0" prefWidth="770.0">
         <columns>
           <TableColumn fx:id="projectIdColumn" prefWidth="177.0" text="项目编号" />
           <TableColumn fx:id="projectNameColumn" prefWidth="143.0" text="项目名称" />
             <TableColumn fx:id="projectTimeColumn" prefWidth="145.0" text="项目时间" />
             <TableColumn fx:id="projectNumColumn" prefWidth="70.0" text="专家人数" />
-            <TableColumn fx:id="projectLocationColumn" prefWidth="215.0" text="项目地点" />
-            <TableColumn fx:id="projectFieldsColumn" minWidth="0.0" prefWidth="600.0" text="抽取范围" />
+            <TableColumn fx:id="projectLocationColumn" prefWidth="222.0" text="项目地点" />
+            <TableColumn fx:id="projectFieldsColumn" minWidth="0.0" prefWidth="593.0" text="抽取范围" />
         </columns>
       </TableView>
-      <Label layoutX="14.0" layoutY="426.0" text="中选专家" textFill="#1664a6">
+      <Label layoutX="14.0" layoutY="402.0" text="中选专家" textFill="#1664a6">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TableView fx:id="expertTable" layoutY="455.0" prefHeight="145.0" prefWidth="770.0">
+      <TableView fx:id="expertTable" layoutY="435.0" prefHeight="175.0" prefWidth="770.0">
         <columns>
           <TableColumn fx:id="thIdColumn" prefWidth="190.0" text="编号" />
           <TableColumn fx:id="thNameColumn" prefWidth="118.0" text="姓名" />
             <TableColumn fx:id="thSexColumn" prefWidth="68.0" text="性别" />
             <TableColumn fx:id="thAgeColumn" prefWidth="77.0" text="年龄" />
             <TableColumn fx:id="thProfessionalTitleColumn" prefWidth="105.0" text="职称" />
-            <TableColumn fx:id="thFieldColumn" prefWidth="210.0" text="专业" />
+            <TableColumn fx:id="thFieldColumn" prefWidth="211.0" text="专业" />
         </columns>
       </TableView>
       <Label layoutX="14.0" layoutY="7.0" text="历史项目" textFill="#1664a6">

@@ -3,14 +3,14 @@ package com.expert.utils;
 public class TableString {
 
 	public static String CREATE_EXPERT_TABLE = "CREATE TABLE IF NOT EXISTS 'expert' ("
-			+ "'th_id' INT NOT NULL PRIMARY KEY,"
+			+ "'th_id' CHAR(30) NOT NULL PRIMARY KEY,"
 			+ "'th_name' CHAR(10) NOT NULL,"
 			+ "'th_sex' CHAR(1) NOT NULL,"
 			+ "'th_age' INT NOT NULL,"
 			+ "'th_field' CHAR(30) NOT NULL,"
 			+ "'th_professional_title' CHAR(10) NOT NULL)";
 	
-	public static String CREATE_PROJECTS_TABLE = "CREATE TABLE IF NOT EXISTS 'projects'("
+	public static String CREATE_PROJECTS_TABLE = "CREATE TABLE IF NOT EXISTS 'projects'(" 
 			+ "'project_id' INT NOT NULL PRIMARY KEY,"
 			+ "'project_name' CHAR(50) NOT NULL,"
 			+ "'project_time' CHAR(15) NOT NULL,"
@@ -18,6 +18,30 @@ public class TableString {
 			+ "'project_location' CHAR(50) NOT NULL,"
 			+ "'Project_fields' CHAR(50) NOT NULL," 
 			+ "'Project_expertsId' CHAR(10) NOT NULL)";
+	public static String CREATE_COLLOGE_CATEGORY_TABLE = "CREATE TABLE IF NOT EXISTS 'colloge_category' ("
+			+ "college_id INT NOT NULL PRIMARY KEY,"
+			+ "major_id INT NOT NULL,"
+			+ "parent_id INT NOT NULL)";
+	
+	public static String CREATE_COLLOGE_MAJOR_NAME_TABLE = "CREATE TABLE IF NOT EXISTS 'colloge_major_name'("
+			+ "'cm_id' CHAR(10) NOT NULL PRIMARY KEY,"
+			+ "'cm_name' CHAR(50) NOT NULL)";
+	
+	public static String INSERT_CMNAME = "INSERT INTO colloge_major_name (cm_id, cm_name) values "
+			+ "('01', '冶金工程学院'),('02', '材料科学与工程学院'), ('03', '化学与化工学院'),"
+			+ "('04', '建筑工程学院'),('05', '机械工程学院'),('06', '电气与信息工程学院'),"
+			+ "('07', '计算机科学与技术学院'),('08', '数理科学与工程学院'),('09', '管理科学与工程学院'),"
+			+ "('10', '商学院'),('11', '公共管理与法学院'), ('12', '外国语学院'),"
+			+ "('13', '能源与环境学院'),('14', '艺术与设计学院'), ('15', '马克思主义学院'),"
+			+ "('16', '体育部'),('17', '创新教育学院')";
+//			+ "('010', '冶金工程'),('011', '资源循环科学与工程'),('012', '矿物加工工程'), ('013', '材料成型及控制工程'),"
+//			+ "('020', '金属材料工程'), ('021', '无机非金属材料工程'),('022', '材料物理'), ('023', '材料科学与工程'),('024', '焊接技术与工程', '025', '材料化学'),"
+//			+ "('030', '化学工程与工艺'), ('031', '应用化学'), ('032', '高分子材料与工程'), ('033', '制药工程'),('034','化学生物学'), ('035', '能源化学工程'),"
+//			+ "('040', '建筑环境与能源应用工程'),('041', '给排水科学与工程'), ('042', '土木工程'), ('043', '安全工程'),('044', '工程管理'), ('045', '建筑学'),('046', '城乡规划'),('047', '道路桥梁与渡河工程'),"
+//			+ "('050', '机械设计制造及其自动化'),('051', '过程装备与控制工程'),('052','车辆工程'),('053','机械工程'),"
+//			+ "('060', '自动化'),('061', '测控技术与仪器'), ('062', '通信工程'),('063', '电子信息工程'),('064', '电气工程及其自动化'),('065', '电气工程与智能控制'),"
+//			+ "('070', '计算机科学与技术'),('071', '软件工程'),('072', '网络工程'),('073', '物联网工程')";
+	
 	
 	
 	

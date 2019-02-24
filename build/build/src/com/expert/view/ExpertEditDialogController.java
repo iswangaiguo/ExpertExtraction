@@ -44,7 +44,7 @@ public class ExpertEditDialogController {
 	    
 	    public void setExpert(Expert expert) {
 	    	this.expert = expert;
-	    	if (expert.getThId() == 0) {
+	    	if (expert.getThId().equals("")) {
 	    		thIdField.setEditable(true);
 	    		thIdField.setText("");
 	  	        thNameField.setText("");
@@ -53,7 +53,7 @@ public class ExpertEditDialogController {
 	  	        thProfessionalTitleField.setText("");
 			} else {
 				thIdField.setEditable(false);
-				thIdField.setText(Integer.toString(expert.getThId()));
+				thIdField.setText(expert.getThId());
 				thNameField.setText(expert.getThName());
 				if (expert.getThSex().equals("男")) {
 					thMale.setSelected(true);
@@ -73,7 +73,7 @@ public class ExpertEditDialogController {
 	    @FXML
 	    private void handleOk() {
 	        if (isInputValid()) {
-	        	expert.setThId(Integer.parseInt(thIdField.getText()));
+	        	expert.setThId(thIdField.getText());
 	        	expert.setThName(thNameField.getText());
 	        	expert.setThAge(Integer.parseInt(thAgeField.getText()));
 	        	if (thMale.isSelected()) {
@@ -101,8 +101,8 @@ public class ExpertEditDialogController {
 	        } else {
 	        	Iterator<Expert> iterator = controller.getExpertData().iterator();
 	   	        while (iterator.hasNext()) {
-	   	        	if (iterator.next().getThId() == Integer.parseInt(thIdField.getText())) {
-	   	        		if (expert.getThId() == Integer.parseInt(thIdField.getText())) {
+	   	        	if (iterator.next().getThId().equals(thIdField.getText())) {
+	   	        		if (expert.getThId().equals(thIdField.getText())) {
 	   	        			errorMessage += "";
 	   					} else {
 	   						errorMessage += "编号重复";

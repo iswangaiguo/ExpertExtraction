@@ -11,7 +11,6 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
-import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.CellType;
 
 import com.expert.model.Expert;
@@ -32,7 +31,7 @@ public class ExpertLibraryController {
 	private TableView<Expert> expertTable;
 
 	@FXML
-	private TableColumn<Expert, Number> thIdColumn;
+	private TableColumn<Expert, String> thIdColumn;
 
 	@FXML
 	private TableColumn<Expert, String> thNameColumn;
@@ -143,14 +142,18 @@ public class ExpertLibraryController {
 			workbook = new HSSFWorkbook(fileSystem);
 			HSSFSheet sheet = workbook.getSheet("Sheet1");
 			int lastRowIndex = sheet.getLastRowNum();
-			System.out.println(lastRowIndex);
+			int insertNum = 0;
+			int updateNum = 0;
 			for (int i = 1; i <= lastRowIndex; i++) {
 				HSSFRow row = sheet.getRow(i);
 				if (row == null)
 					break;
-				row.getCell(0).setCellType(CellType.NUMERIC);
 				ExpertCopy expertCopy = new ExpertCopy();
-				expertCopy.setTh_id((int) row.getCell(0).getNumericCellValue());
+				if (row.getCell(0) == null) {
+					continue;
+				}
+				row.getCell(0).setCellType(CellType.STRING);
+				expertCopy.setTh_id(row.getCell(0).getStringCellValue());
 				expertCopy.setTh_name(row.getCell(1).getStringCellValue());
 				expertCopy.setTh_sex(row.getCell(2).getStringCellValue());
 				row.getCell(3).setCellType(CellType.NUMERIC);
@@ -175,14 +178,22 @@ public class ExpertLibraryController {
 							expertCopy.getTh_age(), expertCopy.getTh_field(), expertCopy.getTh_professional_title(),expertCopy.getTh_id()};
 					sql = "update expert set th_name = ?,th_sex = ?,th_age = ?,th_field = ?,th_professional_title = ? where th_id = ?";
 					queryRunner.update(sql, params);
+					updateNum++;
 				} else {
 					Object[] params = { expertCopy.getTh_id(), expertCopy.getTh_name(), expertCopy.getTh_sex(),
 							expertCopy.getTh_age(), expertCopy.getTh_field(), expertCopy.getTh_professional_title()};	
 					sql = "insert into expert (th_id, th_name, th_sex, th_age, th_field, th_professional_title) values (?,?,?,?,?,?)";
 					queryRunner.update(sql, params);
 					expertData.add(expert);
+					insertNum++;
 				}
 			}
+			Alert alert = new Alert(Alert.AlertType.INFORMATION);
+			alert.setTitle("插入情况");
+			alert.setHeaderText(null);
+			alert.setContentText("共插入" + insertNum + "条数据\n"
+					+ "共更新" + updateNum + "条数据");
+			alert.showAndWait();
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {

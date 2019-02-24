@@ -1,16 +1,16 @@
 package com.expert.model;
 
 public class ExpertCopy {
-	private int th_id;
+	private String th_id;
 	private String th_name;
 	private String th_sex;
 	private int th_age;
 	private String th_field;
 	private String th_professional_title;
-	public int getTh_id() {
+	public String getTh_id() {
 		return th_id;
 	}
-	public void setTh_id(int th_id) {
+	public void setTh_id(String th_id) {
 		this.th_id = th_id;
 	}
 	public String getTh_name() {

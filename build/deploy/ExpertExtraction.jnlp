@@ -8,13 +8,14 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="ExpertExtraction.jar" size="30275" download="eager" />
+    <jar href="ExpertExtraction.jar" size="32843" download="eager" />
     <jar href="libs\commons-dbcp2-2.1.1.jar" size="174167" download="eager" />
     <jar href="libs\commons-dbutils-1.6.jar" size="77857" download="eager" />
     <jar href="libs\commons-lang3-3.8.1.jar" size="501879" download="eager" />
     <jar href="libs\commons-logging-1.1.1.jar" size="60686" download="eager" />
     <jar href="libs\commons-pool2-2.4.2.jar" size="111969" download="eager" />
     <jar href="libs\jfoenix-8.0.8.jar" size="2708772" download="eager" />
+    <jar href="libs\poi-3.17.jar" size="2701171" download="eager" />
     <jar href="libs\sqlite-jdbc-3.23.1.jar" size="6733696" download="eager" />
   </resources>
   <jfx:javafx-desc  width="0" height="0" main-class="com.expert.MainApp"  name="ExpertExtraction" />

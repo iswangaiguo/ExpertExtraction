@@ -1,5 +1,6 @@
 package com.expert.view;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -7,6 +8,8 @@ import java.util.Random;
 import java.util.stream.Collectors;
 
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.ArrayHandler;
+import org.apache.commons.dbutils.handlers.ArrayListHandler;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateFormatUtils;
 
@@ -14,6 +17,7 @@ import com.expert.model.Expert;
 import com.expert.model.ProjectDetailsCopy;
 import com.expert.utils.DBSource;
 import com.expert.utils.TableString;
+import com.sun.org.apache.bcel.internal.generic.NEW;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -43,6 +47,8 @@ public class NewProjectController {
 	
 	@FXML
 	private ScrollPane scrollPane;
+	
+	private QueryRunner queryRunner = new QueryRunner(DBSource.getDatasource());
 	
 	private List<CheckBox> list = new ArrayList<>();
 
@@ -101,7 +107,6 @@ public class NewProjectController {
 			}
 			experts.remove(selectedNum);
 		}
-		System.out.println(selected);
 		return selected;
 	}
 
@@ -139,13 +144,23 @@ public class NewProjectController {
 		GridPane gridPane = new GridPane();
 		gridPane.setHgap(20);
 		gridPane.setVgap(3);
-		for(int i = 0; i < TableString.FIELD.length; i++) {
-			CheckBox checkBox = new CheckBox(TableString.FIELD[i]);
-			list.add(checkBox);
-			GridPane.setConstraints(checkBox, i%2, i/2);
-			gridPane.getChildren().add(checkBox);
+		String sql = "select cm_name from colloge_major_name where length(cm_id) > 2";
+		try {
+			List<Object[]> cmList = queryRunner.query(sql, new ArrayListHandler());
+			for(int i = 0; i < cmList.size(); i++) {
+				CheckBox checkBox = new CheckBox((String)cmList.get(i)[0]);
+				list.add(checkBox);
+				GridPane.setConstraints(checkBox, i%2, i/2);
+				gridPane.getChildren().add(checkBox);
+			}
+			scrollPane.setContent(gridPane);
+		} catch (SQLException e) {
+			Alert alert = new Alert(Alert.AlertType.WARNING);
+			alert.setTitle("警告");
+			alert.setHeaderText(null);
+			alert.setContentText("专业信息初始化失败");
+			alert.showAndWait();
 		}
-		scrollPane.setContent(gridPane);
 	}
 
 	public void setData(MainLayoutController controller) {

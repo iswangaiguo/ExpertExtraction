@@ -53,7 +53,7 @@
                               <ToggleGroup fx:id="numberforchose" />
                            </toggleGroup>
                         </RadioButton>
-                        <RadioButton fx:id="projectFivePerson" mnemonicParsing="false" prefHeight="30.0" prefWidth="51.0" text="5人" toggleGroup="$numberforchose" />
+                        <RadioButton fx:id="projectFivePerson" mnemonicParsing="false" prefHeight="30.0" prefWidth="60.0" text="5人" toggleGroup="$numberforchose" />
                      </children>
                   </HBox>
                   <TextField fx:id="projectLocation" layoutX="184.0" layoutY="171.0" prefHeight="30.0" prefWidth="318.0" />
