@@ -171,6 +171,6 @@ public class MainLayoutController {
 	public void setMainApp(MainApp mainApp) {
 		this.mainApp = mainApp;
 	}
-	
+
 
 }

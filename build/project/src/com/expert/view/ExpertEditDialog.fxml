@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="334.0" prefWidth="419.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.expert.view.ExpertEditDialogController">
+<AnchorPane prefHeight="334.0" prefWidth="441.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.expert.view.ExpertEditDialogController">
    <children>
       <HBox layoutX="32.0" layoutY="14.0">
          <children>
@@ -30,7 +30,7 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label prefHeight="45.0" prefWidth="262.0" text="年龄" GridPane.rowIndex="3">
+                  <Label prefHeight="45.0" prefWidth="262.0" text="电话" GridPane.rowIndex="3">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -57,9 +57,7 @@
                   </Label>
                   <TextField fx:id="thIdField" GridPane.columnIndex="1" />
                   <TextField fx:id="thNameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <TextField fx:id="thAgeField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <TextField fx:id="thProfessionalTitleField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                  <TextField fx:id="thFieldField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <TextField fx:id="thPhoneField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <children>
                         <RadioButton fx:id="thMale" mnemonicParsing="false" text="男">
@@ -69,6 +67,13 @@
                         <RadioButton fx:id="thFemale" mnemonicParsing="false" text="女" toggleGroup="$sex" />
                      </children>
                   </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="8.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                     <children>
+                        <ChoiceBox fx:id="thcollege" prefHeight="30.0" prefWidth="129.0" />
+                        <ChoiceBox fx:id="thmajor" prefWidth="150.0" />
+                     </children>
+                  </HBox>
+                  <ChoiceBox fx:id="thProfessionalTitle" prefHeight="30.0" prefWidth="129.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                </children>
             </GridPane>
          </children>

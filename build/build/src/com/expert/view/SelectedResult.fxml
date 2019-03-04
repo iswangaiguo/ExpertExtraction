@@ -13,9 +13,9 @@
           <TableColumn fx:id="thIdColumn" prefWidth="75.0" text="编号" />
           <TableColumn fx:id="thNameColumn" prefWidth="75.0" text="姓名" />
             <TableColumn fx:id="thSexColumn" prefWidth="75.0" text="性别" />
-            <TableColumn fx:id="thAgeColumn" prefWidth="75.0" text="年龄" />
-            <TableColumn fx:id="thProfessionalTitleColumn" prefWidth="75.0" text="职称" />
-            <TableColumn fx:id="thFieldColumn" prefWidth="188.0" text="专业" />
+            <TableColumn fx:id="thPhoneColumn" prefWidth="120.0" text="电话" />
+            <TableColumn fx:id="thProfessionalTitleColumn" prefWidth="62.0" text="职称" />
+            <TableColumn fx:id="thFieldColumn" prefWidth="156.0" text="专业" />
         </columns>
       </TableView>
       <HBox layoutX="390.0" layoutY="258.0" spacing="20.0">

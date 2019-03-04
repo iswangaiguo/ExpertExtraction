@@ -9,11 +9,11 @@ import org.apache.commons.dbutils.handlers.ScalarHandler;
 import com.expert.utils.DBSource;
 import com.expert.utils.TableString;
 import com.expert.view.MainLayoutController;
-import com.expert.view.RootLayoutController;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -26,12 +26,14 @@ public class MainApp extends Application{
 
 	private Stage primaryStage;
 	
-	private BorderPane rootLayout;
+	private BorderPane rootLayout; 
 	
 	@Override
 	public void start(Stage stage) throws Exception {
+
+		stage.setTitle("专家抽取软件"); 
+		stage.getIcons().add(new Image("file:resources/images/title.png"));
 		this.primaryStage = stage;
-		this.primaryStage.setTitle("Expert"); 
 		initSqliteData();
 		initRootLayout();
 		showMainLayout();
@@ -59,7 +61,6 @@ public class MainApp extends Application{
 			loader.setLocation(MainApp.class.getResource("view/RootLayout.fxml"));
 			rootLayout = (BorderPane)loader.load();
 			Scene scene = new Scene(rootLayout);
-			RootLayoutController controller = loader.getController();
 			primaryStage.setScene(scene);
 	        primaryStage.show();
 		} catch (IOException e) {

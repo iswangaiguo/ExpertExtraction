@@ -20,6 +20,7 @@ import com.expert.utils.DBSource;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.FileChooser;
@@ -40,7 +41,7 @@ public class ExpertLibraryController {
 	private TableColumn<Expert, String> thSexColumn;
 
 	@FXML
-	private TableColumn<Expert, Number> thAgeColumn;
+	private TableColumn<Expert, String> thPhoneColumn;
 
 	@FXML
 	private TableColumn<Expert, String> thFieldColumn;
@@ -48,16 +49,20 @@ public class ExpertLibraryController {
 	@FXML
 	private TableColumn<Expert, String> thProfessionalTitleColumn;
 
+	@FXML
+	private ProgressBar excelProgress;
+	
 	private MainLayoutController controller;
 
 	private QueryRunner queryRunner = new QueryRunner(DBSource.getDatasource());
 
 	@FXML
 	private void initialize() {
+		excelProgress.setVisible(false);
 		thIdColumn.setCellValueFactory(cellData -> cellData.getValue().thIdProperty());
 		thNameColumn.setCellValueFactory(cellData -> cellData.getValue().thNameProperty());
 		thSexColumn.setCellValueFactory(cellData -> cellData.getValue().thSexProperty());
-		thAgeColumn.setCellValueFactory(cellData -> cellData.getValue().thAgeProperty());
+		thPhoneColumn.setCellValueFactory(cellData -> cellData.getValue().thPhoneProperty());
 		thFieldColumn.setCellValueFactory(cellData -> cellData.getValue().thFieldProperty());
 		thProfessionalTitleColumn.setCellValueFactory(cellData -> cellData.getValue().thProfessionalTitleProperty());
 	}
@@ -91,14 +96,15 @@ public class ExpertLibraryController {
 		if (okClicked) {
 			try {
 				Object[] params = { tempExpert.getThId(), tempExpert.getThName(), tempExpert.getThSex(),
-						tempExpert.getThAge(), tempExpert.getThField(), tempExpert.getThProfessionalTitle() };
-				String sql = "insert into expert (th_id, th_name, th_sex, th_age, th_field, th_professional_title) values (?,?,?,?,?,?)";
+						tempExpert.getThPhone(), tempExpert.getThField(), tempExpert.getThProfessionalTitle() };
+				String sql = "insert into expert (th_id, th_name, th_sex, th_phone, th_field, th_professional_title) values (?,?,?,?,?,?)";
 				queryRunner.update(sql, params);
 				controller.getExpertData().add(tempExpert);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 		}
+		
 	}
 
 	@FXML
@@ -108,9 +114,9 @@ public class ExpertLibraryController {
 			boolean okClicked = controller.showExpertEditDialog(selectedPerson);
 			if (okClicked) {
 				Object[] params = {selectedPerson.getThName(), selectedPerson.getThSex(),
-						selectedPerson.getThAge(), selectedPerson.getThField(), selectedPerson.getThProfessionalTitle(),
+						selectedPerson.getThPhone(), selectedPerson.getThField(), selectedPerson.getThProfessionalTitle(),
 						selectedPerson.getThId() };
-				String sql = "update expert set th_name = ?,th_sex = ?,th_age = ?,th_field = ?,th_professional_title = ? where th_id = ?";
+				String sql = "update expert set th_name = ?,th_sex = ?,th_phone = ?,th_field = ?,th_professional_title = ? where th_id = ?";
 				try {
 					queryRunner.update(sql, params);
 				} catch (SQLException e) {
@@ -144,7 +150,9 @@ public class ExpertLibraryController {
 			int lastRowIndex = sheet.getLastRowNum();
 			int insertNum = 0;
 			int updateNum = 0;
+			
 			for (int i = 1; i <= lastRowIndex; i++) {
+				
 				HSSFRow row = sheet.getRow(i);
 				if (row == null)
 					break;
@@ -156,8 +164,7 @@ public class ExpertLibraryController {
 				expertCopy.setTh_id(row.getCell(0).getStringCellValue());
 				expertCopy.setTh_name(row.getCell(1).getStringCellValue());
 				expertCopy.setTh_sex(row.getCell(2).getStringCellValue());
-				row.getCell(3).setCellType(CellType.NUMERIC);
-				expertCopy.setTh_age((int) row.getCell(3).getNumericCellValue());
+				expertCopy.setTh_phone(row.getCell(3).getStringCellValue());
 				expertCopy.setTh_professional_title(row.getCell(4).getStringCellValue());
 				expertCopy.setTh_field(row.getCell(5).getStringCellValue());
 				Expert expert = new Expert(expertCopy);
@@ -175,14 +182,14 @@ public class ExpertLibraryController {
 				if (flag) {
 					expertData.set(index, expert);
 					Object[] params = { expertCopy.getTh_name(), expertCopy.getTh_sex(),
-							expertCopy.getTh_age(), expertCopy.getTh_field(), expertCopy.getTh_professional_title(),expertCopy.getTh_id()};
-					sql = "update expert set th_name = ?,th_sex = ?,th_age = ?,th_field = ?,th_professional_title = ? where th_id = ?";
+							expertCopy.getTh_phone(), expertCopy.getTh_field(), expertCopy.getTh_professional_title(),expertCopy.getTh_id()};
+					sql = "update expert set th_name = ?,th_sex = ?,th_phone = ?,th_field = ?,th_professional_title = ? where th_id = ?";
 					queryRunner.update(sql, params);
 					updateNum++;
 				} else {
 					Object[] params = { expertCopy.getTh_id(), expertCopy.getTh_name(), expertCopy.getTh_sex(),
-							expertCopy.getTh_age(), expertCopy.getTh_field(), expertCopy.getTh_professional_title()};	
-					sql = "insert into expert (th_id, th_name, th_sex, th_age, th_field, th_professional_title) values (?,?,?,?,?,?)";
+							expertCopy.getTh_phone(), expertCopy.getTh_field(), expertCopy.getTh_professional_title()};	
+					sql = "insert into expert (th_id, th_name, th_sex, th_phone, th_field, th_professional_title) values (?,?,?,?,?,?)";
 					queryRunner.update(sql, params);
 					expertData.add(expert);
 					insertNum++;

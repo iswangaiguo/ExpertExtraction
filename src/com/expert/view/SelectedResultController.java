@@ -1,7 +1,6 @@
 package com.expert.view;
 
 import java.sql.SQLException;
-import java.util.Comparator;
 import java.util.List;
 
 import org.apache.commons.dbutils.QueryRunner;
@@ -12,7 +11,6 @@ import com.expert.model.ExpertCopy;
 import com.expert.model.ProjectDetails;
 import com.expert.model.ProjectDetailsCopy;
 import com.expert.utils.DBSource;
-import com.sun.xml.internal.bind.v2.model.core.ID;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -37,7 +35,7 @@ public class SelectedResultController {
 	private TableColumn<Expert, String> thSexColumn;
 
 	@FXML
-	private TableColumn<Expert, Number> thAgeColumn;
+	private TableColumn<Expert, String> thPhoneColumn;
 
 	@FXML
 	private TableColumn<Expert, String> thFieldColumn;
@@ -61,7 +59,7 @@ public class SelectedResultController {
 		thIdColumn.setCellValueFactory(cellData -> cellData.getValue().thIdProperty());
 		thNameColumn.setCellValueFactory(cellData -> cellData.getValue().thNameProperty());
 		thSexColumn.setCellValueFactory(cellData -> cellData.getValue().thSexProperty());
-		thAgeColumn.setCellValueFactory(cellData -> cellData.getValue().thAgeProperty());
+		thPhoneColumn.setCellValueFactory(cellData -> cellData.getValue().thPhoneProperty());
 		thFieldColumn.setCellValueFactory(cellData -> cellData.getValue().thFieldProperty());
 		thProfessionalTitleColumn.setCellValueFactory(cellData -> cellData.getValue().thProfessionalTitleProperty());
 	}

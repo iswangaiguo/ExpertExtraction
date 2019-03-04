@@ -4,7 +4,7 @@ public class ExpertCopy {
 	private String th_id;
 	private String th_name;
 	private String th_sex;
-	private int th_age;
+	private String th_phone;
 	private String th_field;
 	private String th_professional_title;
 	public String getTh_id() {
@@ -25,11 +25,11 @@ public class ExpertCopy {
 	public void setTh_sex(String th_sex) {
 		this.th_sex = th_sex;
 	}
-	public int getTh_age() {
-		return th_age;
+	public String getTh_phone() {
+		return th_phone;
 	}
-	public void setTh_age(int th_age) {
-		this.th_age = th_age;
+	public void setTh_phone(String th_phone) {
+		this.th_phone = th_phone;
 	}
 	public String getTh_field() {
 		return th_field;

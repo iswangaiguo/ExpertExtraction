@@ -8,7 +8,6 @@ import java.util.Random;
 import java.util.stream.Collectors;
 
 import org.apache.commons.dbutils.QueryRunner;
-import org.apache.commons.dbutils.handlers.ArrayHandler;
 import org.apache.commons.dbutils.handlers.ArrayListHandler;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateFormatUtils;
@@ -16,8 +15,6 @@ import org.apache.commons.lang3.time.DateFormatUtils;
 import com.expert.model.Expert;
 import com.expert.model.ProjectDetailsCopy;
 import com.expert.utils.DBSource;
-import com.expert.utils.TableString;
-import com.sun.org.apache.bcel.internal.generic.NEW;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;

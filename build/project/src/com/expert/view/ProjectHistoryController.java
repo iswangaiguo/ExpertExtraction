@@ -54,7 +54,7 @@ public class ProjectHistoryController {
 	private TableColumn<Expert, String> thSexColumn;
 
 	@FXML
-	private TableColumn<Expert, Number> thAgeColumn;
+	private TableColumn<Expert, String> thPhoneColumn;
 
 	@FXML
 	private TableColumn<Expert, String> thFieldColumn;
@@ -81,6 +81,7 @@ public class ProjectHistoryController {
 			for (ProjectDetailsCopy projectDetailsCopy : list) {
 				projectDetailsList.add(new ProjectDetails(projectDetailsCopy));
 			}
+			projectDetailsList.sort((pd1, pd2) -> pd2.getProject_id().get().compareTo(pd1.getProject_id().get()));
 			showDetails();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -113,7 +114,7 @@ public class ProjectHistoryController {
 			thIdColumn.setCellValueFactory(cellData -> cellData.getValue().thIdProperty());
 			thNameColumn.setCellValueFactory(cellData -> cellData.getValue().thNameProperty());
 			thSexColumn.setCellValueFactory(cellData -> cellData.getValue().thSexProperty());
-			thAgeColumn.setCellValueFactory(cellData -> cellData.getValue().thAgeProperty());
+			thPhoneColumn.setCellValueFactory(cellData -> cellData.getValue().thPhoneProperty());
 			thFieldColumn.setCellValueFactory(cellData -> cellData.getValue().thFieldProperty());
 			thProfessionalTitleColumn.setCellValueFactory(cellData -> cellData.getValue().thProfessionalTitleProperty());
 			

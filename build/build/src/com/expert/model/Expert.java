@@ -1,7 +1,5 @@
 package com.expert.model;
 
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -10,28 +8,26 @@ public class Expert {
 	private final StringProperty thId;
 	private final StringProperty thName;
 	private final StringProperty thSex;
-	private final IntegerProperty thAge;
+	private final StringProperty thPhone;
 	private final StringProperty thField;
 	private final StringProperty thProfessionalTitle;
 	
-	
-	
 	public Expert() {
-		this("", "", "", 0, "", "");
+		this("", "", "", "", "", "");
 	}
 
-	public Expert(String id, String name, String sex, Integer age,
+	public Expert(String id, String name, String sex, String phone,
 			String field,String professionalTitle) {
 		this.thId = new SimpleStringProperty(id);
 		this.thName = new SimpleStringProperty(name);
 		this.thSex = new SimpleStringProperty(sex);
-		this.thAge = new SimpleIntegerProperty(age);
+		this.thPhone = new SimpleStringProperty(phone);
 		this.thField = new SimpleStringProperty(field);
 		this.thProfessionalTitle = new SimpleStringProperty(professionalTitle);
 	}
 	public Expert(ExpertCopy expertCopy) {
 		this(expertCopy.getTh_id(), expertCopy.getTh_name(), expertCopy.getTh_sex(), 
-				expertCopy.getTh_age(), expertCopy.getTh_field(), expertCopy.getTh_professional_title());
+				expertCopy.getTh_phone(), expertCopy.getTh_field(), expertCopy.getTh_professional_title());
 	}
 	
 
@@ -66,14 +62,14 @@ public class Expert {
 		return thSex;
 	}
 	
-	public Integer getThAge() {
-		return thAge.get();
+	public String getThPhone() {
+		return thPhone.get();
 	}
-	public void setThAge(Integer age) {
-		this.thAge.set(age);
+	public void setThPhone(String phone) {
+		this.thPhone.set(phone);
 	}
-	public IntegerProperty thAgeProperty() {
-		return thAge;
+	public StringProperty thPhoneProperty() {
+		return thPhone;
 	}
 
 	public String getThField() {
@@ -98,9 +94,8 @@ public class Expert {
 
 	@Override
 	public String toString() {
-		return "Expert [thId=" + thId + ", thName=" + thName + ", thSex=" + thSex + ", thAge=" + thAge + ", thField="
+		return "Expert [thId=" + thId + ", thName=" + thName + ", thSex=" + thSex + ", thPhone=" + thPhone + ", thField="
 				+ thField + ", thProfessionalTitle=" + thProfessionalTitle + "]";
 	}
-
 	
 }
