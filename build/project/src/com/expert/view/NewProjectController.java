@@ -16,11 +16,12 @@ import com.expert.model.Expert;
 import com.expert.model.ProjectDetailsCopy;
 import com.expert.utils.DBSource;
 
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
@@ -33,17 +34,20 @@ public class NewProjectController {
 	@FXML
 	private DatePicker projectTime;
 	
-	@FXML
-	private RadioButton projectThreePerson;
-	
-	@FXML
-	private RadioButton projectFivePerson;
+//	@FXML
+//	private RadioButton projectThreePerson;
+//	
+//	@FXML
+//	private RadioButton projectFivePerson;
 	
 	@FXML
 	private TextField projectLocation;
 	
 	@FXML
 	private ScrollPane scrollPane;
+	
+	@FXML
+	private ComboBox<Number> projectNumber;
 	
 	private QueryRunner queryRunner = new QueryRunner(DBSource.getDatasource());
 	
@@ -57,11 +61,12 @@ public class NewProjectController {
 			ProjectDetailsCopy projectDetailsCopy = new ProjectDetailsCopy();
 			projectDetailsCopy.setProject_id(Double.parseDouble(new DateFormatUtils().format(new Date(),"yyyyMMddhhmmss")));
 			projectDetailsCopy.setProject_name(projectName.getText());
-			if (projectThreePerson.isSelected()) {
-				projectDetailsCopy.setProject_num(3);
-			} else {
-				projectDetailsCopy.setProject_num(5);
-			}
+//			if (projectThreePerson.isSelected()) {
+//				projectDetailsCopy.setProject_num(3);
+//			} else {
+//				projectDetailsCopy.setProject_num(5);
+//			}
+			projectDetailsCopy.setProject_num((int)projectNumber.getValue());
 			projectDetailsCopy.setProject_location(projectLocation.getText());
 			projectDetailsCopy.setProject_time(projectTime.getValue().toString());
 			String selectedId = selectExpert(projectDetailsCopy);
@@ -115,9 +120,10 @@ public class NewProjectController {
 		if (projectTime.getValue() == null) {
 			errorMessage += "未选择时间\n";
 		}
-		if (!projectThreePerson.isSelected() && !projectFivePerson.isSelected()) {
+		if (projectNumber.getValue() == null) {
 			errorMessage += "未选择人数\n";
 		}
+		
 		if (StringUtils.isBlank(projectLocation.getText())) {
 			errorMessage += "地点未填写\n";
 		}
@@ -138,9 +144,14 @@ public class NewProjectController {
 
 	@FXML
 	private void initialize() {
+		createMajor();
+	}
+
+	public void createMajor() {
 		GridPane gridPane = new GridPane();
 		gridPane.setHgap(20);
 		gridPane.setVgap(3);
+		projectNumber.setItems(FXCollections.observableArrayList(1, 2, 3, 4, 5));
 		String sql = "select cm_name from colloge_major_name where length(cm_id) > 2";
 		try {
 			List<Object[]> cmList = queryRunner.query(sql, new ArrayListHandler());
@@ -158,6 +169,7 @@ public class NewProjectController {
 			alert.setContentText("专业信息初始化失败");
 			alert.showAndWait();
 		}
+		
 	}
 
 	public void setData(MainLayoutController controller) {

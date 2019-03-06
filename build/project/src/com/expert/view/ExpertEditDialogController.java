@@ -50,6 +50,7 @@ public class ExpertEditDialogController {
 	private Expert expert;
 	private boolean okClicked = false;
 	private MainLayoutController controller;
+	
 	private final QueryRunner queryRunner = new QueryRunner(DBSource.getDatasource());
 	
 	private List<Object[]> cmnList;

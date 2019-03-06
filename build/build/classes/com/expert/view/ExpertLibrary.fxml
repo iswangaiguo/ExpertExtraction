@@ -22,8 +22,9 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <HBox layoutX="415.0" layoutY="556.0" spacing="15.0">
+      <HBox layoutX="305.0" layoutY="556.0" spacing="15.0">
          <children>
+            <Button mnemonicParsing="false" onAction="#handleDefineMajor" text="自定义专业" />
             <Button mnemonicParsing="false" onAction="#importxls" prefWidth="75.0" text="导入" />
             <Button layoutX="428.0" layoutY="597.0" mnemonicParsing="false" onAction="#handleNewExpert" prefHeight="30.0" prefWidth="75.0" text="添加" />
             <Button layoutX="525.0" layoutY="597.0" mnemonicParsing="false" onAction="#handleEditExpert" prefHeight="30.0" prefWidth="75.0" text="修改" />
@@ -35,6 +36,6 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <ProgressBar fx:id="excelProgress" layoutX="2.0" layoutY="530.0" prefHeight="0.0" prefWidth="758.0" progress="0.0" />
+      <ProgressBar fx:id="progressBar" layoutX="128.0" layoutY="2.0" prefHeight="24.0" prefWidth="632.0" progress="0.0" />
    </children>
 </AnchorPane>

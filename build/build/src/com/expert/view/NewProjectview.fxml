@@ -48,12 +48,7 @@
                   <DatePicker fx:id="projectTime" layoutX="184.0" layoutY="83.0" />
                   <HBox layoutX="184.0" layoutY="126.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" prefWidth="391.0" spacing="40.0">
                      <children>
-                        <RadioButton fx:id="projectThreePerson" mnemonicParsing="false" prefHeight="30.0" text="3人">
-                           <toggleGroup>
-                              <ToggleGroup fx:id="numberforchose" />
-                           </toggleGroup>
-                        </RadioButton>
-                        <RadioButton fx:id="projectFivePerson" mnemonicParsing="false" prefHeight="30.0" prefWidth="60.0" text="5人" toggleGroup="$numberforchose" />
+                        <ComboBox fx:id="projectNumber" prefWidth="150.0" />
                      </children>
                   </HBox>
                   <TextField fx:id="projectLocation" layoutX="184.0" layoutY="171.0" prefHeight="30.0" prefWidth="318.0" />

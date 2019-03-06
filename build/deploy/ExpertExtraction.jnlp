@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="ExpertExtraction.jar" size="12615640" download="eager" />
+    <jar href="ExpertExtraction.jar" size="12622359" download="eager" />
     <jar href="libs\commons-dbcp2-2.1.1.jar" size="174167" download="eager" />
     <jar href="libs\commons-dbutils-1.6.jar" size="77857" download="eager" />
     <jar href="libs\commons-lang3-3.8.1.jar" size="501879" download="eager" />

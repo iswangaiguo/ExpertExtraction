@@ -40,7 +40,9 @@ public class MainLayoutController {
 
 	private AnchorPane historyPanel;
 	
+	public static boolean resetMajor = false;
 	
+	private NewProjectController controller = null;
 
 	public MainLayoutController() {
 		try {
@@ -70,13 +72,17 @@ public class MainLayoutController {
 				FXMLLoader loader = new FXMLLoader();
 				loader.setLocation(MainLayoutController.class.getResource("NewProjectview.fxml"));
 				newPanel = (AnchorPane) loader.load();
-				NewProjectController controller = loader.getController();
+				controller = loader.getController();
 				controller.setData(this);
 				borderPane.setCenter(newPanel);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		} else {
+			if (resetMajor) {
+				controller.createMajor();
+				resetMajor = false;
+			}
 			borderPane.setCenter(newPanel);
 		}
 	}
@@ -163,6 +169,26 @@ public class MainLayoutController {
 		}
 	}
 
+	public void showDefineMajor() {
+		try {
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(MainLayoutController.class.getResource("DefineMajorDialog.fxml"));
+			AnchorPane anchorPane = (AnchorPane)loader.load();
+			Stage dialogStage = new Stage();
+			dialogStage.setTitle("自定义专业");
+			dialogStage.initModality(Modality.WINDOW_MODAL);
+			dialogStage.initOwner(mainApp.getStage());
+			Scene scene = new Scene(anchorPane);
+			dialogStage.setScene(scene);
+			DefineMajorDialogController controller = loader.getController();
+			controller.setDialogStage(dialogStage);
+			
+			dialogStage.showAndWait();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
 	@FXML
 	private void initialize() {
 		creaeteNewProject();
@@ -171,6 +197,10 @@ public class MainLayoutController {
 	public void setMainApp(MainApp mainApp) {
 		this.mainApp = mainApp;
 	}
+	
+	
+
+
 
 
 }
